@@ -1,0 +1,51 @@
+version: "3.3"
+services:
+
+  db:
+    image: postgres:13
+    volumes:
+      - db-data:/var/lib/postgresql/data/pgdata
+    networks:
+      - igs-manager-net
+    env_file:
+      - .env
+    environment:
+      - PGDATA=/var/lib/postgresql/data/pgdata
+
+  pgadmin:
+    image: dpage/pgadmin4
+    env_file:
+      - .env
+    volumes:
+      - pgadmin-data:/var/lib/pgadmin
+    networks:
+      - igs-manager-net
+    depends_on:
+      - db
+    ports:
+      - "5050:5050"
+
+  backend:
+    image: igs-manager-backend
+    depends_on:
+      - db
+    env_file:
+      - .env
+    build:
+      context: .
+      dockerfile: DockerFile
+    command: sh -c "pipenv run python manage.py migrate --noinput &&
+                    pipenv run python manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    networks:
+      - igs-manager-net
+
+networks:
+  igs-manager-net:
+
+volumes:
+  db-data:
+  pgadmin-data:

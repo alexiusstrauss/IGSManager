@@ -1,0 +1,13 @@
+.vscode
+.coverage
+/env/
+*.egg-info
+*.pot
+*.py[co]
+*.orig
+*.fdb
+__pycache__
+__pycache__/
+MANIFEST
+*.sqlite3
+.pytest_cache

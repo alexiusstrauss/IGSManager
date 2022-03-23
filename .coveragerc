@@ -1,0 +1,6 @@
+[run]
+omit = 
+    *migrations*,
+    *IGSManager*,
+    *tests*,
+    *__init__.py*,
