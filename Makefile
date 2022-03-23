@@ -21,6 +21,10 @@ demo:
 	docker-compose up -d
 	docker-compose exec backend pipenv run python manage.py loaddata contrib/fixtures/initial_data.json
 
+createsuperuser:
+	docker-compose up -d
+	docker-compose exec backend pipenv run python manage.py createsuperuser
+
 tests:
 	docker-compose up -d
 	docker-compose exec backend pipenv run pytest
