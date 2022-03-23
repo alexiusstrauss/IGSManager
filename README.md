@@ -7,8 +7,9 @@ IGS Manager is a backend service responsible for Employee CRUD's
 
 * Install Docker and Docker Compose
 
+- Clone the project and access the IGSManager folder to start the service with the commands below
 
-* To create the environment variables, run the command "make config-env" and the .env file will be created in the root folder. "env.exemple" is a sample file in contrib folder
+* IMPORTANT To create the environment variables, run the command "make config-env" and the .env file will be created in the root folder. "env.exemple" is a sample file in contrib folder
 ```
 $ make config-env
 ```
@@ -26,7 +27,20 @@ $ make up
 * After the command '$ make up' 
  - You can access swagger on http://127.0.0.1:8000
  - You can access redoc on http://127.0.0.1:8000/redoc/
+ - You can access PGAdmin go to: http://localhost:5050 
+ - user = admin@igs.com.br password = admin
 
+* If you want to load initial data such as admin user and department and employee data: run the command: '$ make demo'
+ - You can access http://127.0.0.1:8000/admin with
+ - user = admin password = admin
+```
+$ make demo
+```
+
+* To create a superuser run the command: "$ make createsuperuser"
+```
+$ make createsuperuser
+```
 
 * Run Tests with the command "$ make tests":
 ```
