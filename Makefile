@@ -19,7 +19,7 @@ down:
 
 demo:
 	docker-compose up -d
-	docker-compose exec beckend pipenv run python manage.py loaddata contrib/fixtures/initial_data.json
+	docker-compose exec backend pipenv run python manage.py loaddata contrib/fixtures/initial_data.json
 
 tests:
 	docker-compose up -d
