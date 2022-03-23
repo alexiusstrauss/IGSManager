@@ -22,7 +22,10 @@ $ make build
 ```
 $ make up
 ```
-After the command '$ make up' you can access http://127.0.0.1:8000
+
+* After the command '$ make up' 
+ - You can access swagger on http://127.0.0.1:8000
+ - You can access redoc on http://127.0.0.1:8000/redoc/
 
 
 * Run Tests with the command "$ make tests":
