@@ -13,14 +13,17 @@ jobs:
       - name: Create env file
         run: make config-env
   
-      - name: Build server
+      - name: Build Server
         run: make build
 
-      - name: Runserver
-        run: make up
+      - name: Run Service
+        run: docker-compose up -d
+
+      - name: Pylint
+        run: make pylint
 
       - name: Run Flake8
-        run: docker-compose exec -T backend pipenv run flake8
+        run: make flake8
 
       - name: Run tests and coverage
-        run: docker-compose exec -T backend pipenv run pytest --cov
+        run: make tests-cov
