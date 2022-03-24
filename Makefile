@@ -27,16 +27,16 @@ createsuperuser:
 
 tests:
 	docker-compose up -d
-	docker-compose exec backend pipenv run pytest
+	docker-compose exec -T backend pipenv run pytest
 
 tests-cov:
 	docker-compose up -d
-	docker-compose exec backend pipenv run pytest --cov
+	docker-compose exec -T backend pipenv run pytest --cov
 
 flake8:
 	docker-compose up -d
-	docker-compose exec backend pipenv run flake8
+	docker-compose exec -T backend pipenv run flake8
 
 pylint:
 	docker-compose up -d
-	docker-compose exec backend pipenv run pylint employee/
+	docker-compose exec -T backend pipenv run pylint employee/
