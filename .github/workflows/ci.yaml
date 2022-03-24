@@ -19,7 +19,7 @@ jobs:
       - name: Run Service
         run: docker-compose up -d
 
-      - name: Pylint
+      - name: Run Pylint
         run: make pylint
 
       - name: Run Flake8
